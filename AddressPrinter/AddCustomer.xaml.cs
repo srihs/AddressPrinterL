@@ -37,7 +37,7 @@ namespace AddressPrinter
 
                 if (isValidForm)
                 {
-                      
+                    System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
                 }
 
 
