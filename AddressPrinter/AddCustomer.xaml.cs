@@ -38,6 +38,33 @@ namespace AddressPrinter
                 if (isValidForm)
                 {
                     System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
+                    string Sql = "Insert into Customer (Cus_CustomerName,Cus_CustomerAddress1,Cus_CustomerAddress2,Cus_CustomerAddress3,"+
+                        "Cus_CustomerAddress4,"+
+                        "Cus_Phone1,"+
+                        "Cus_Phone2,"+
+                        "Cus_Rep)"+
+                        "values('"+txtCustomerName.Text +"','"+txtAddress1.Text + "','" + txtAddress2.Text + "','" + txtAddress3.Text + "','" + txtAddress4.Text + "','" + txtPhone.Text + "','" + txtPhone2.Text + "','" + txtRep.Text + "')";
+
+                    System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
+                    dbCommand.CommandType = System.Data.CommandType.Text;
+                    dbCommand.ExecuteNonQuery();
+                    MessageBox.Show("Record Saved","Address Printer",MessageBoxButton.OKCancel,MessageBoxImage.Information);
+
+                    txtCustomerName.SetValue(TextBoxHelper.WatermarkProperty, "Customer Name");
+                    txtAddress1.SetValue(TextBoxHelper.WatermarkProperty, "Address line 1");
+                    txtAddress2.SetValue(TextBoxHelper.WatermarkProperty, "Address line 2");
+                    txtAddress3.SetValue(TextBoxHelper.WatermarkProperty, "Address line 3");
+                    txtAddress4.SetValue(TextBoxHelper.WatermarkProperty, "Address line 4");
+                    txtPhone.SetValue(TextBoxHelper.WatermarkProperty, "Telephone");
+                    txtPhone2.SetValue(TextBoxHelper.WatermarkProperty, "Telephone 2");
+                    txtFax.SetValue(TextBoxHelper.WatermarkProperty, "Fax");
+                    txtRep.SetValue(TextBoxHelper.WatermarkProperty, "Rep");
+
+
+
+
+
+
                 }
 
 
