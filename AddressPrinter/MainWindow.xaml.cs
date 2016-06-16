@@ -40,5 +40,34 @@ namespace AddressPrinter
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnEditCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AddCustomer objCustomer = new AddCustomer("EDIT");
+                objCustomer.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnUploadCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CustomerUpload objCustomerLoad = new CustomerUpload();
+                objCustomerLoad.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:AddressPrinter"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="Address Printer" Height="165.057" Width="377.841" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Address Printer" Height="165.057" Width="356.841" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="174*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="BtnAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="27,36,0,0" VerticalAlignment="Top" Width="135" Height="67" Click="BtnAddCustomer_Click"/>
-        <Button x:Name="BtnPrintAddress" Content="Print Addresses" HorizontalAlignment="Left" Margin="184,36,0,0" VerticalAlignment="Top" Width="135" Height="67"/>
+        <Button x:Name="BtnAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnAddCustomer_Click" IsEnabled="False"/>
+        <Button x:Name="BtnCourierNote" Content="Print Courier Note" HorizontalAlignment="Left" Margin="11,65,0,0" VerticalAlignment="Top" Width="148" Height="43"/>
+        <Button x:Name="BtnPrintAddress" Content="Print Address Note" HorizontalAlignment="Left" Margin="174,65,0,0" VerticalAlignment="Top" Width="167" Height="43"/>
+        <Button x:Name="BtnUploadCustomer" Content="Upload Customers" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" Width="123" Height="43" Click="BtnUploadCustomer_Click"/>
+        <Button x:Name="BtnEditCustomer" Content="Edit Customer" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnEditCustomer_Click" IsEnabled="False"/>
 
     </Grid>
 </Controls:MetroWindow>

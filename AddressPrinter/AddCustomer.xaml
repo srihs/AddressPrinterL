@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:AddressPrinter"
         mc:Ignorable="d"
         Title="Add Customer" Height="300" Width="474">
-    <Grid>
+    <Grid Name="gdCreate">
         <TextBox Controls:TextBoxHelper.Watermark="Customer Name" Name="txtCustomerName" Margin="22,19,71,223" />
         <TextBox  Controls:TextBoxHelper.Watermark="Address line 1" Name="txtAddress1" Margin="22,51,27,191"/>
         <TextBox  Controls:TextBoxHelper.Watermark="Address line 2" Name="txtAddress2" Margin="22,83,27,159"/>
@@ -19,7 +19,7 @@
         <TextBox  Controls:TextBoxHelper.Watermark="Rep" Name="txtRep" Margin="22,211,313,31"/>
         
         <Button x:Name="btnSave" Content="Save"   HorizontalAlignment="Left" Margin="284,213,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-        <Button x:Name="btnCancel" Content="Cancell"   HorizontalAlignment="Left" Margin="364,213,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnSearch" Content="..."   HorizontalAlignment="Left" Margin="405,21,0,0" VerticalAlignment="Top" Width="39" Height="14"/>
+        <Button x:Name="btnCancel" Content="Cancel"   HorizontalAlignment="Left" Margin="364,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnSearch" Visibility="Hidden" Content="..."   HorizontalAlignment="Left" Margin="405,21,0,0" VerticalAlignment="Top" Width="39" Height="14"/>
     </Grid>
 </Controls:MetroWindow>
