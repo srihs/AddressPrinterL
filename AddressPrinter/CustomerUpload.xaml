@@ -8,7 +8,7 @@
         Title="Customer Upload" Height="506.667" Width="778.667">
     <Grid>
         <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Left" Margin="604,10,0,0" VerticalAlignment="Top" Width="75" Click="btnLoad_Click"/>
-        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnUpload" Content="Upload" HorizontalAlignment="Left" Margin="685,10,0,0" VerticalAlignment="Top" Width="75" Click="btnUpload_Click"/>
         <DataGrid x:Name="dtGrid" HorizontalAlignment="Left" Height="426" Margin="10,40,0,0" VerticalAlignment="Top" Width="751"/>
 
     </Grid>
