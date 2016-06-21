@@ -1,0 +1,17 @@
+﻿<Controls:MetroWindow x:Class="AddressPrinter.CurierNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:AddressPrinter"
+        mc:Ignorable="d"
+        Title="Curier Note Print" Height="389" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox Controls:TextBoxHelper.Watermark="Address" x:Name="txtCustomerName_Copy" Margin="10,40,10,144" IsReadOnly="True" />
+        <Button x:Name="btnSearch" Content="..." HorizontalAlignment="Left" Margin="251,10,0,0" VerticalAlignment="Top" Width="31" Click="btnSearch_Click"/>
+        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="10,8,58,323" IsReadOnly="True"  />
+
+    </Grid>
+</Controls:MetroWindow>

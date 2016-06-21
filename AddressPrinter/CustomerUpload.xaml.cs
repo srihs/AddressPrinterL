@@ -14,15 +14,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 using Excel;
 using Microsoft.Win32;
+
 
 namespace AddressPrinter
 {
     /// <summary>
     /// Interaction logic for CustomerUpload.xaml
     /// </summary>
-    public partial class CustomerUpload : Window
+    public partial class CustomerUpload : MetroWindow
     {
         DataTable dt = new DataTable();
 
@@ -106,6 +108,7 @@ namespace AddressPrinter
             {
 
                 MessageBox.Show(ex.Message, "Address Printer");
+                dt.Dispose();
             }
 
         }

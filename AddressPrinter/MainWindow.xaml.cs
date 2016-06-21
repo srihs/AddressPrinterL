@@ -69,5 +69,11 @@ namespace AddressPrinter
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnCourierNote_Click(object sender, RoutedEventArgs e)
+        {
+            CurierNote objCurierNote = new CurierNote();
+            objCurierNote.ShowDialog();
+        }
     }
 }

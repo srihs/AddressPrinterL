@@ -13,7 +13,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="BtnAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnAddCustomer_Click" IsEnabled="False"/>
-        <Button x:Name="BtnCourierNote" Content="Print Courier Note" HorizontalAlignment="Left" Margin="11,65,0,0" VerticalAlignment="Top" Width="148" Height="43"/>
+        <Button x:Name="BtnCourierNote" Content="Print Courier Note" HorizontalAlignment="Left" Margin="11,65,0,0" VerticalAlignment="Top" Width="148" Height="43" Click="BtnCourierNote_Click"/>
         <Button x:Name="BtnPrintAddress" Content="Print Address Note" HorizontalAlignment="Left" Margin="174,65,0,0" VerticalAlignment="Top" Width="167" Height="43"/>
         <Button x:Name="BtnUploadCustomer" Content="Upload Customers" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" Width="123" Height="43" Click="BtnUploadCustomer_Click"/>
         <Button x:Name="BtnEditCustomer" Content="Edit Customer" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnEditCustomer_Click" IsEnabled="False"/>
