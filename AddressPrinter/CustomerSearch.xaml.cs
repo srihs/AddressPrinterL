@@ -50,26 +50,33 @@ namespace AddressPrinter
 
         private void txtCustomerName_KeyDown(object sender, KeyEventArgs e)
         {
+            
+        }
+
+        private void txtCustomerName_TextChanged(object sender, TextChangedEventArgs e)
+        {
             try
             {
-                if (e.Key == Key.Enter)
+                ///if (e.Key == Key.Enter)
+                //{
+                if (txtCustomerName.Text != string.Empty)
                 {
-                    if (txtCustomerName.Text != string.Empty)
+                    dt.Rows.Clear();
+                    System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
+                    string Sql = " Select * from Customer where Cus_CustomerName Like '%" + txtCustomerName.Text + "%'";
+                    System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
+                    dbCommand.CommandType = System.Data.CommandType.Text;
+                    System.Data.SQLite.SQLiteDataReader dReader = dbCommand.ExecuteReader();
+                    //// dbCommand.Dispose();
+                    //  dbConnection.Dispose();
+
+                    if (dReader.HasRows)
                     {
-
-                        System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
-                        string Sql = " Select * from Customer where Cus_CustomerName Like '%" + txtCustomerName.Text + "%'";
-                        System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
-                        dbCommand.CommandType = System.Data.CommandType.Text;
-                        System.Data.SQLite.SQLiteDataReader dReader = dbCommand.ExecuteReader();
-                        //// dbCommand.Dispose();
-                        //  dbConnection.Dispose();
-
                         while (dReader.Read())
                         {
                             DataRow dRow = dt.NewRow();
                             dRow["Customer Name"] = (dReader[1]?.ToString() ?? "").ToString();
-                            dRow["Address"] = (dReader[2]?.ToString() ?? "").ToString() + " " + (dReader[3]?.ToString() ?? "").ToString() + " "+ (dReader[4]?.ToString() ?? "").ToString();
+                            dRow["Address"] = (dReader[2]?.ToString() ?? "").ToString() + " " + (dReader[3]?.ToString() ?? "").ToString() + " " + (dReader[4]?.ToString() ?? "").ToString();
                             dRow["Rep"] = (dReader[8]?.ToString() ?? "").ToString();
                             dt.Rows.Add(dRow);
                         }
@@ -83,7 +90,12 @@ namespace AddressPrinter
 
                     }
                 }
+                else
+                {
+                    dgSearhCustomer.ItemsSource = null;
+                }
             }
+            //}
             catch (Exception ex)
             {
 

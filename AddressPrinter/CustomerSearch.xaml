@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="CustomerSearch" Height="346.632" Width="505.921" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
-        <DataGrid x:Name="dgSearhCustomer" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="246" Width="478"/>
-        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="22,21,186,269" KeyDown="txtCustomerName_KeyDown" />
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="True" x:Name="dgSearhCustomer" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="246" Width="478"/>
+        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="22,21,186,269" KeyDown="txtCustomerName_KeyDown" TextChanged="txtCustomerName_TextChanged" />
 
     </Grid>
 </Controls:MetroWindow>
