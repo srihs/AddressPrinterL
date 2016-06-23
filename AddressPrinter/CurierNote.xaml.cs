@@ -26,10 +26,17 @@ namespace AddressPrinter
             InitializeComponent();
         }
 
+        public CurierNote(Customer customer)
+        {
+            InitializeComponent();
+            txtCustomerName.Text = customer.customerName;
+        }
+
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             CustomerSearch objSearch = new CustomerSearch();
             objSearch.Show();
+            this.Close();
         }
     }
 }

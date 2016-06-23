@@ -28,9 +28,10 @@ namespace AddressPrinter
             InitializeComponent();
             try
             {
+                dt.Columns.Add("Id", typeof(int));
                 dt.Columns.Add("Customer Name", typeof(string));
                 dt.Columns.Add("Address", typeof(string));
-                
+
                 dt.Columns.Add("Rep", typeof(string));
                 dgSearhCustomer.ItemsSource = dt.DefaultView;
                 txtCustomerName.Focus();
@@ -50,7 +51,7 @@ namespace AddressPrinter
 
         private void txtCustomerName_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
         }
 
         private void txtCustomerName_TextChanged(object sender, TextChangedEventArgs e)
@@ -75,6 +76,7 @@ namespace AddressPrinter
                         while (dReader.Read())
                         {
                             DataRow dRow = dt.NewRow();
+                            dRow["Id"] = int.Parse(dReader[0].ToString());
                             dRow["Customer Name"] = (dReader[1]?.ToString() ?? "").ToString();
                             dRow["Address"] = (dReader[2]?.ToString() ?? "").ToString() + " " + (dReader[3]?.ToString() ?? "").ToString() + " " + (dReader[4]?.ToString() ?? "").ToString();
                             dRow["Rep"] = (dReader[8]?.ToString() ?? "").ToString();
@@ -82,6 +84,7 @@ namespace AddressPrinter
                         }
 
                         dgSearhCustomer.ItemsSource = dt.DefaultView;
+                        dgSearhCustomer.Columns[0].Visibility = Visibility.Hidden;
 
                     }
                     else
@@ -101,6 +104,51 @@ namespace AddressPrinter
 
                 MessageBox.Show(ex.Message, "Address Printer");
             }
+        }
+
+        private void dgSearhCustomer_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    int custId = (int)((DataRowView)dgSearhCustomer.SelectedItems[0])["Id"];
+                    e.Handled = true;
+
+                    searchCustomer(custId);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+            }
+        }
+
+        private void dgSearhCustomer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+
+                int custId = (int)((DataRowView)dgSearhCustomer.SelectedItems[0])["Id"];
+
+                searchCustomer(custId);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+            }
+        }
+
+        public void searchCustomer(int id)
+        {
+            Customer objCus = new Customer().findCustomer(id);
+            CurierNote objCurierNote = new CurierNote(objCus);
+            objCurierNote.Show();
+            this.Close();
         }
     }
 }
