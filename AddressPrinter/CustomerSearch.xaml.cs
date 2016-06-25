@@ -34,19 +34,20 @@ namespace AddressPrinter
 
                 dt.Columns.Add("Rep", typeof(string));
                 dgSearhCustomer.ItemsSource = dt.DefaultView;
+               
                 txtCustomerName.Focus();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message, "Address Printer");
             }
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            dgSearhCustomer.Columns[0].Visibility = Visibility.Hidden;
         }
 
         private void txtCustomerName_KeyDown(object sender, KeyEventArgs e)

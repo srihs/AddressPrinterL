@@ -7,11 +7,13 @@
                       
         xmlns:local="clr-namespace:AddressPrinter"
         mc:Ignorable="d"
-        Title="Curier Note Print" Height="389" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Curier Note Print" Height="339.278" Width="300" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <Grid>
-        <TextBox Controls:TextBoxHelper.Watermark="Address" x:Name="txtCustomerName_Copy" Margin="10,40,10,144" IsReadOnly="True" />
         <Button x:Name="btnSearch" Content="..." HorizontalAlignment="Left" Margin="251,10,0,0" VerticalAlignment="Top" Width="31" Click="btnSearch_Click"/>
-        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="10,8,58,323" IsReadOnly="True"  />
-
+        <TextBox Controls:TextBoxHelper.Watermark="Address" x:Name="txtCustomerAddress" Margin="10,51,10,83" IsReadOnly="True" />
+        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="10,8,58,273" IsReadOnly="True"  />
+        <TextBox Controls:TextBoxHelper.Watermark="Invoice Number" x:Name="txtInvoiceNumber" Margin="10,230,171,51"  />
+        <TextBox Controls:TextBoxHelper.Watermark="No of boxes" PreviewTextInput="NumberValidationTextBox" x:Name="txtNoOfBoxes" Margin="10,262,171,19"  />
+        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="208,258,0,0" VerticalAlignment="Top" Width="74" Click="btnPrint_Click" />
     </Grid>
 </Controls:MetroWindow>

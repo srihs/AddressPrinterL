@@ -72,8 +72,18 @@ namespace AddressPrinter
 
         private void BtnCourierNote_Click(object sender, RoutedEventArgs e)
         {
-            CurierNote objCurierNote = new CurierNote();
-            objCurierNote.ShowDialog();
+            
+
+            try
+            {
+                CurierNote objCurierNote = new CurierNote();
+                objCurierNote.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
