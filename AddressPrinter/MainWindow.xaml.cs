@@ -85,5 +85,19 @@ namespace AddressPrinter
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Settings objSettings = new Settings();
+                objSettings.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -95,7 +95,7 @@ namespace AddressPrinter
             }
 
 
-            txtCustomerName.SetValue(TextBoxHelper.WatermarkProperty, "Customer Name");
+            txtCustomerName.SetValue(TextBoxHelper.WatermarkProperty, "Name");
             txtAddress1.SetValue(TextBoxHelper.WatermarkProperty, "Address line 1");
             txtAddress2.SetValue(TextBoxHelper.WatermarkProperty, "Address line 2");
             txtAddress3.SetValue(TextBoxHelper.WatermarkProperty, "Address line 3");

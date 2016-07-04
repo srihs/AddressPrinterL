@@ -45,10 +45,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Excel.4.5">
-      <HintPath>..\..\..\..\..\Downloads\output\output\net45\Excel.4.5.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\output\net45\Excel.4.5.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\..\..\..\..\Downloads\output\output\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\output\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
@@ -100,6 +100,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +151,10 @@
     <Page Include="Resources\IconsNonShared.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
