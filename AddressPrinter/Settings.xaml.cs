@@ -42,6 +42,23 @@ namespace AddressPrinter
         {
             try
             {
+                Boolean isDefault = false;
+
+                if (checkBoxIsDefult.IsChecked ?? true)
+                    isDefault = true;
+                else
+                    isDefault = false;
+
+
+                System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
+                string Sql = "Insert into Settings_address (Name,Address_line1,Address_line2,Address_line3,Address_line4," +
+                    "Is_default)" +
+                    "values('" + txtCustomerName.Text + "','" + txtAddress1.Text + "','" + txtAddress2.Text + "','" + txtAddress3.Text + "','" + txtAddress4.Text + "','" + isDefault + "')";
+
+                System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
+                dbCommand.CommandType = System.Data.CommandType.Text;
+                dbCommand.ExecuteNonQuery();
+
 
                 DataRow dRow = dt.NewRow();
                 dRow["Name"] = txtCustomerName.Text.ToString();
@@ -65,6 +82,11 @@ namespace AddressPrinter
                 txtAddress2.SetValue(TextBoxHelper.WatermarkProperty, "Address line 2");
                 txtAddress3.SetValue(TextBoxHelper.WatermarkProperty, "Address line 3");
                 txtAddress4.SetValue(TextBoxHelper.WatermarkProperty, "Address line 4");
+                dataGridAddress.ItemsSource = null;
+                checkBoxIsDefult.IsChecked = false;
+                MessageBox.Show("Record Saved", "Address Printer", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+
+
             }
             catch (Exception ex)
             {

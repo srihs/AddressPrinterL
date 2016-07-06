@@ -19,5 +19,6 @@
         <TextBox  Controls:TextBoxHelper.Watermark="Address line 4" x:Name="txtAddress4" Margin="10,147,117,223"/>
         <Button x:Name="btnSave" Content="Save"   HorizontalAlignment="Left" Margin="501,147,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnSave_Click"  />
         <DataGrid x:Name="dataGridAddress" HorizontalAlignment="Left" Margin="14,186,0,0" VerticalAlignment="Top" Height="183" Width="562"/>
+        <CheckBox x:Name="checkBoxIsDefult" Content="Default Address" HorizontalAlignment="Left" Margin="447,22,0,0" VerticalAlignment="Top" />
     </Grid>
 </Controls:MetroWindow>
