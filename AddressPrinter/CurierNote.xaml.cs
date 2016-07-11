@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Text.RegularExpressions;
+using System.Data;
 
 namespace AddressPrinter
 {
@@ -21,6 +22,8 @@ namespace AddressPrinter
     /// </summary>
     public partial class CurierNote : MetroWindow
     {
+        Customer objCustomer;
+
         public CurierNote()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace AddressPrinter
             //string.Format("Test: {0}/{1}", val1, val2);
             txtCustomerAddress.Text = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", customer.address1, customer.address2, customer.address3, customer.address4, customer.phone, customer.phone2, customer.rep).Replace("\n",
                                                          Environment.NewLine);
+            objCustomer = customer;
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -66,7 +70,19 @@ namespace AddressPrinter
                     return;
                 }
 
-                
+                DataSetCurierNote objDataset = new DataSetCurierNote();
+                DataRow dRow = objDataset.Tables["CurierNote"].NewRow();
+                dRow["CustomerName"] = objCustomer.customerName;
+                dRow["Address1"] = objCustomer.address1;
+                dRow["Address2"] = objCustomer.address2;
+                dRow["Address3"] = objCustomer.address3;
+                dRow["Address4"] = objCustomer.address4;
+                dRow["TelephoneNo"] = objCustomer.phone;
+                dRow["InvoiceNo"] = txtInvoiceNumber.Text;
+                dRow["NoBoxes"] = txtNoOfBoxes.Text;
+                objDataset.Tables["CurierNote"].Rows.Add(dRow);
+
+
             }
             catch (Exception ex)
             {
@@ -77,7 +93,7 @@ namespace AddressPrinter
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
 
         }
     }
