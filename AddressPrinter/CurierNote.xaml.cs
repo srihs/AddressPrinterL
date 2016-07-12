@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Drawing.Printing;
 
 namespace AddressPrinter
 {
@@ -81,7 +82,21 @@ namespace AddressPrinter
                 dRow["InvoiceNo"] = txtInvoiceNumber.Text;
                 dRow["NoBoxes"] = txtNoOfBoxes.Text;
                 objDataset.Tables["CurierNote"].Rows.Add(dRow);
+                
 
+                PrinterSettings settings = new PrinterSettings();
+
+                rtpCurierNote report = new rtpCurierNote();
+                report.PrintOptions.PrinterName = settings.PrinterName;
+                report.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
+                report.SetDataSource(objDataset.Tables["CurierNote"]);
+                report.VerifyDatabase();
+
+
+
+                report.PrintToPrinter(1, false, 0, 0);
+
+                
 
             }
             catch (Exception ex)
