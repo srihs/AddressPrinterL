@@ -12,7 +12,7 @@
   <xs:element name="DataSetCurierNote" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetCurierNote" msprop:Generator_UserDSName="DataSetCurierNote">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CurierNote" msprop:Generator_TableClassName="CurierNoteDataTable" msprop:Generator_TableVarName="tableCurierNote" msprop:Generator_RowChangedName="CurierNoteRowChanged" msprop:Generator_TablePropName="CurierNote" msprop:Generator_RowDeletingName="CurierNoteRowDeleting" msprop:Generator_RowChangingName="CurierNoteRowChanging" msprop:Generator_RowEvHandlerName="CurierNoteRowChangeEventHandler" msprop:Generator_RowDeletedName="CurierNoteRowDeleted" msprop:Generator_RowClassName="CurierNoteRow" msprop:Generator_UserTableName="CurierNote" msprop:Generator_RowEvArgName="CurierNoteRowChangeEvent">
+        <xs:element name="CurierNote" msprop:Generator_TableClassName="CurierNoteDataTable" msprop:Generator_TableVarName="tableCurierNote" msprop:Generator_TablePropName="CurierNote" msprop:Generator_RowDeletingName="CurierNoteRowDeleting" msprop:Generator_RowChangingName="CurierNoteRowChanging" msprop:Generator_RowEvHandlerName="CurierNoteRowChangeEventHandler" msprop:Generator_RowDeletedName="CurierNoteRowDeleted" msprop:Generator_UserTableName="CurierNote" msprop:Generator_RowChangedName="CurierNoteRowChanged" msprop:Generator_RowEvArgName="CurierNoteRowChangeEvent" msprop:Generator_RowClassName="CurierNoteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" type="xs:string" minOccurs="0" />
@@ -23,6 +23,7 @@
               <xs:element name="TelephoneNo" msprop:Generator_ColumnVarNameInTable="columnTelephoneNo" msprop:Generator_ColumnPropNameInRow="TelephoneNo" msprop:Generator_ColumnPropNameInTable="TelephoneNoColumn" msprop:Generator_UserColumnName="TelephoneNo" type="xs:string" minOccurs="0" />
               <xs:element name="InvoiceNo" msprop:Generator_ColumnVarNameInTable="columnInvoiceNo" msprop:Generator_ColumnPropNameInRow="InvoiceNo" msprop:Generator_ColumnPropNameInTable="InvoiceNoColumn" msprop:Generator_UserColumnName="InvoiceNo" type="xs:string" minOccurs="0" />
               <xs:element name="NoBoxes" msprop:Generator_ColumnVarNameInTable="columnNoBoxes" msprop:Generator_ColumnPropNameInRow="NoBoxes" msprop:Generator_ColumnPropNameInTable="NoBoxesColumn" msprop:Generator_UserColumnName="NoBoxes" type="xs:string" minOccurs="0" />
+              <xs:element name="FromAddress" msprop:Generator_ColumnVarNameInTable="columnFromAddress" msprop:Generator_ColumnPropNameInRow="FromAddress" msprop:Generator_ColumnPropNameInTable="FromAddressColumn" msprop:Generator_UserColumnName="FromAddress" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

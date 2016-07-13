@@ -295,6 +295,8 @@ namespace AddressPrinter {
             
             private global::System.Data.DataColumn columnNoBoxes;
             
+            private global::System.Data.DataColumn columnFromAddress;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CurierNoteDataTable() {
@@ -394,6 +396,14 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FromAddressColumn {
+                get {
+                    return this.columnFromAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +439,7 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes) {
+            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes, string FromAddress) {
                 CurierNoteRow rowCurierNoteRow = ((CurierNoteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerName,
@@ -439,7 +449,8 @@ namespace AddressPrinter {
                         Address4,
                         TelephoneNo,
                         InvoiceNo,
-                        NoBoxes};
+                        NoBoxes,
+                        FromAddress};
                 rowCurierNoteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCurierNoteRow);
                 return rowCurierNoteRow;
@@ -470,6 +481,7 @@ namespace AddressPrinter {
                 this.columnTelephoneNo = base.Columns["TelephoneNo"];
                 this.columnInvoiceNo = base.Columns["InvoiceNo"];
                 this.columnNoBoxes = base.Columns["NoBoxes"];
+                this.columnFromAddress = base.Columns["FromAddress"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +503,8 @@ namespace AddressPrinter {
                 base.Columns.Add(this.columnInvoiceNo);
                 this.columnNoBoxes = new global::System.Data.DataColumn("NoBoxes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNoBoxes);
+                this.columnFromAddress = new global::System.Data.DataColumn("FromAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromAddress);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -761,6 +775,22 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FromAddress {
+                get {
+                    try {
+                        return ((string)(this[this.tableCurierNote.FromAddressColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromAddress\' in table \'CurierNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCurierNote.FromAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableCurierNote.CustomerNameColumn);
             }
@@ -853,6 +883,18 @@ namespace AddressPrinter {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNoBoxesNull() {
                 this[this.tableCurierNote.NoBoxesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFromAddressNull() {
+                return this.IsNull(this.tableCurierNote.FromAddressColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFromAddressNull() {
+                this[this.tableCurierNote.FromAddressColumn] = global::System.Convert.DBNull;
             }
         }
         

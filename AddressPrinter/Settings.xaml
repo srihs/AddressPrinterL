@@ -18,7 +18,9 @@
         <TextBox  Controls:TextBoxHelper.Watermark="Address line 3" x:Name="txtAddress3" Margin="10,115,117,255"/>
         <TextBox  Controls:TextBoxHelper.Watermark="Address line 4" x:Name="txtAddress4" Margin="10,147,117,223"/>
         <Button x:Name="btnSave" Content="Save"   HorizontalAlignment="Left" Margin="501,147,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnSave_Click"  />
-        <DataGrid x:Name="dataGridAddress" HorizontalAlignment="Left" Margin="14,186,0,0" VerticalAlignment="Top" Height="183" Width="562"/>
+        <DataGrid x:Name="dataGridAddress" HorizontalAlignment="Left" Margin="14,221,0,0" VerticalAlignment="Top" Height="148" Width="562"/>
         <CheckBox x:Name="checkBoxIsDefult" Content="Default Address" HorizontalAlignment="Left" Margin="447,22,0,0" VerticalAlignment="Top" />
+        <TextBox  Controls:TextBoxHelper.Watermark="Phone no " x:Name="txtPhone1" Margin="10,179,360,191"/>
+        <TextBox  Controls:TextBoxHelper.Watermark="Phone no 2" x:Name="txtPhone2" Margin="242,179,117,191"/>
     </Grid>
 </Controls:MetroWindow>

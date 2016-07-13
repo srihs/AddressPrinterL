@@ -42,17 +42,17 @@ namespace AddressPrinter
         {
             try
             {
-                Boolean isDefault = false;
+                int isDefault = 0;
 
                 if (checkBoxIsDefult.IsChecked ?? true)
-                    isDefault = true;
+                    isDefault = 1;
                 else
-                    isDefault = false;
+                    isDefault = 0;
 
 
                 System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
                 string Sql = "Insert into Settings_address (Name,Address_line1,Address_line2,Address_line3,Address_line4," +
-                    "Is_default)" +
+                    "Is_default,Phone1,Phone2)" +
                     "values('" + txtCustomerName.Text + "','" + txtAddress1.Text + "','" + txtAddress2.Text + "','" + txtAddress3.Text + "','" + txtAddress4.Text + "','" + isDefault + "')";
 
                 System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);

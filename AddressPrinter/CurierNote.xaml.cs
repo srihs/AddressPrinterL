@@ -23,6 +23,7 @@ namespace AddressPrinter
     /// </summary>
     public partial class CurierNote : MetroWindow
     {
+        string businessAddress;
         Customer objCustomer;
 
         public CurierNote()
@@ -38,6 +39,46 @@ namespace AddressPrinter
             txtCustomerAddress.Text = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", customer.address1, customer.address2, customer.address3, customer.address4, customer.phone, customer.phone2, customer.rep).Replace("\n",
                                                          Environment.NewLine);
             objCustomer = customer;
+            businessAddress = getBusinessAddress();
+            txtInvoiceNumber.Focus();
+        }
+
+        private string getBusinessAddress()
+        {
+            string Srt = string.Empty;
+
+            try
+            {
+                System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
+
+                string sql = "Select Name,Address_line1,Address_line2,Address_line3,Address_line4,Phone1,Phone2 from Settings_address where Is_default=1";
+                System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(sql, dbConnection);
+                dbCommand.CommandType = System.Data.CommandType.Text;
+                System.Data.SQLite.SQLiteDataReader dReader = dbCommand.ExecuteReader();
+
+                if (dReader.HasRows)
+                {
+                    while (dReader.Read())
+                    {
+                        Srt = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", dReader[0].ToString(), dReader[1].ToString(), dReader[2].ToString(), dReader[3].ToString(), dReader[4].ToString(), dReader[5].ToString(), dReader[6].ToString()).Replace("\n",
+                            Environment.NewLine);
+
+                    }
+
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+
+            }
+
+            return Srt;
+
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -73,14 +114,16 @@ namespace AddressPrinter
 
                 DataSetCurierNote objDataset = new DataSetCurierNote();
                 DataRow dRow = objDataset.Tables["CurierNote"].NewRow();
-                dRow["CustomerName"] = objCustomer.customerName;
-                dRow["Address1"] = objCustomer.address1;
-                dRow["Address2"] = objCustomer.address2;
-                dRow["Address3"] = objCustomer.address3;
-                dRow["Address4"] = objCustomer.address4;
-                dRow["TelephoneNo"] = objCustomer.phone;
-                dRow["InvoiceNo"] = txtInvoiceNumber.Text;
-                dRow["NoBoxes"] = txtNoOfBoxes.Text;
+                //dRow["CustomerName"] = objCustomer.customerName;
+                dRow["Address1"] = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", objCustomer.customerName, objCustomer.address1, objCustomer.address2, objCustomer.address3, objCustomer.address4, objCustomer.phone, objCustomer.phone2).Replace("\n",
+                                                         Environment.NewLine);
+                dRow["FromAddress"] = businessAddress;
+                //dRow["Address2"] = objCustomer.address2;
+                //dRow["Address3"] = objCustomer.address3;
+                //dRow["Address4"] = objCustomer.address4;
+                //dRow["TelephoneNo"] = objCustomer.phone +" / "+ objCustomer.phone2;
+                dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
+                dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
                 objDataset.Tables["CurierNote"].Rows.Add(dRow);
                 
 
@@ -88,7 +131,6 @@ namespace AddressPrinter
 
                 rtpCurierNote report = new rtpCurierNote();
                 report.PrintOptions.PrinterName = settings.PrinterName;
-                report.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
                 report.SetDataSource(objDataset.Tables["CurierNote"]);
                 report.VerifyDatabase();
 
@@ -96,7 +138,7 @@ namespace AddressPrinter
 
                 report.PrintToPrinter(1, false, 0, 0);
 
-                
+
 
             }
             catch (Exception ex)
