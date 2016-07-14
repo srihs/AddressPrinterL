@@ -29,6 +29,9 @@ namespace AddressPrinter
         public CurierNote()
         {
             InitializeComponent();
+
+
+
         }
 
         public CurierNote(Customer customer)
@@ -84,8 +87,7 @@ namespace AddressPrinter
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             CustomerSearch objSearch = new CustomerSearch();
-            objSearch.Show();
-            this.Close();
+            objSearch.ShowDialog();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)

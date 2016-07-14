@@ -76,8 +76,8 @@ namespace AddressPrinter
 
             try
             {
-                CurierNote objCurierNote = new CurierNote();
-                objCurierNote.ShowDialog();
+                CustomerSearch objCustomerSearch = new CustomerSearch();
+                objCustomerSearch.Show();
             }
             catch (Exception ex)
             {
