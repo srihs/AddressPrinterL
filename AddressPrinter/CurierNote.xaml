@@ -12,8 +12,9 @@
         <Button x:Name="btnSearch" Content="..." HorizontalAlignment="Left" Margin="251,10,0,0" VerticalAlignment="Top" Width="31" Click="btnSearch_Click"/>
         <TextBox Controls:TextBoxHelper.Watermark="Address" x:Name="txtCustomerAddress" Margin="10,51,10,83" IsReadOnly="True" />
         <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="10,8,58,273" IsReadOnly="True"  />
-        <TextBox Controls:TextBoxHelper.Watermark="Invoice Number" x:Name="txtInvoiceNumber" Margin="10,230,171,51"  />
-        <TextBox Controls:TextBoxHelper.Watermark="No of boxes" PreviewTextInput="NumberValidationTextBox" x:Name="txtNoOfBoxes" Margin="10,262,171,19"  />
-        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="208,258,0,0" VerticalAlignment="Top" Width="74" Click="btnPrint_Click" />
+        <TextBox Controls:TextBoxHelper.Watermark="Invoice Number" x:Name="txtInvoiceNumber" Margin="10,230,135,51"  />
+        <TextBox Controls:TextBoxHelper.Watermark="No of boxes" PreviewTextInput="NumberValidationTextBox" x:Name="txtNoOfBoxes" Margin="171,230,10,51"  />
+        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" Margin="208,273,0,0" VerticalAlignment="Top" Width="74" Click="btnPrint_Click" />
+        <TextBox Controls:TextBoxHelper.Watermark="Weight" x:Name="txtWeight" Margin="10,262,135,19"  />
     </Grid>
 </Controls:MetroWindow>

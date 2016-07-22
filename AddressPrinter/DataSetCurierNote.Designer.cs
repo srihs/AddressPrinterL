@@ -297,6 +297,8 @@ namespace AddressPrinter {
             
             private global::System.Data.DataColumn columnFromAddress;
             
+            private global::System.Data.DataColumn columnWeight;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CurierNoteDataTable() {
@@ -404,6 +406,14 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WeightColumn {
+                get {
+                    return this.columnWeight;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,7 +449,7 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes, string FromAddress) {
+            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes, string FromAddress, string Weight) {
                 CurierNoteRow rowCurierNoteRow = ((CurierNoteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerName,
@@ -450,7 +460,8 @@ namespace AddressPrinter {
                         TelephoneNo,
                         InvoiceNo,
                         NoBoxes,
-                        FromAddress};
+                        FromAddress,
+                        Weight};
                 rowCurierNoteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCurierNoteRow);
                 return rowCurierNoteRow;
@@ -482,6 +493,7 @@ namespace AddressPrinter {
                 this.columnInvoiceNo = base.Columns["InvoiceNo"];
                 this.columnNoBoxes = base.Columns["NoBoxes"];
                 this.columnFromAddress = base.Columns["FromAddress"];
+                this.columnWeight = base.Columns["Weight"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -505,6 +517,8 @@ namespace AddressPrinter {
                 base.Columns.Add(this.columnNoBoxes);
                 this.columnFromAddress = new global::System.Data.DataColumn("FromAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFromAddress);
+                this.columnWeight = new global::System.Data.DataColumn("Weight", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWeight);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -791,6 +805,22 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Weight {
+                get {
+                    try {
+                        return ((string)(this[this.tableCurierNote.WeightColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Weight\' in table \'CurierNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCurierNote.WeightColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableCurierNote.CustomerNameColumn);
             }
@@ -895,6 +925,18 @@ namespace AddressPrinter {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFromAddressNull() {
                 this[this.tableCurierNote.FromAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWeightNull() {
+                return this.IsNull(this.tableCurierNote.WeightColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWeightNull() {
+                this[this.tableCurierNote.WeightColumn] = global::System.Convert.DBNull;
             }
         }
         

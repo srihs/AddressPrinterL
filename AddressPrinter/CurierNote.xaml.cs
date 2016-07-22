@@ -126,6 +126,7 @@ namespace AddressPrinter
                 //dRow["TelephoneNo"] = objCustomer.phone +" / "+ objCustomer.phone2;
                 dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
                 dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
+                dRow["Weight"] = txtWeight.Text +" Kgs";
                 objDataset.Tables["CurierNote"].Rows.Add(dRow);
                 
 
