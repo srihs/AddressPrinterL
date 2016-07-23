@@ -299,6 +299,12 @@ namespace AddressPrinter {
             
             private global::System.Data.DataColumn columnWeight;
             
+            private global::System.Data.DataColumn columnBoxCount;
+            
+            private global::System.Data.DataColumn columnRep;
+            
+            private global::System.Data.DataColumn columnCusId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CurierNoteDataTable() {
@@ -414,6 +420,30 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BoxCountColumn {
+                get {
+                    return this.columnBoxCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RepColumn {
+                get {
+                    return this.columnRep;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CusIdColumn {
+                get {
+                    return this.columnCusId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +479,7 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes, string FromAddress, string Weight) {
+            public CurierNoteRow AddCurierNoteRow(string CustomerName, string Address1, string Address2, string Address3, string Address4, string TelephoneNo, string InvoiceNo, string NoBoxes, string FromAddress, string Weight, string BoxCount, string Rep, string CusId) {
                 CurierNoteRow rowCurierNoteRow = ((CurierNoteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CustomerName,
@@ -461,7 +491,10 @@ namespace AddressPrinter {
                         InvoiceNo,
                         NoBoxes,
                         FromAddress,
-                        Weight};
+                        Weight,
+                        BoxCount,
+                        Rep,
+                        CusId};
                 rowCurierNoteRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCurierNoteRow);
                 return rowCurierNoteRow;
@@ -494,6 +527,9 @@ namespace AddressPrinter {
                 this.columnNoBoxes = base.Columns["NoBoxes"];
                 this.columnFromAddress = base.Columns["FromAddress"];
                 this.columnWeight = base.Columns["Weight"];
+                this.columnBoxCount = base.Columns["BoxCount"];
+                this.columnRep = base.Columns["Rep"];
+                this.columnCusId = base.Columns["CusId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,6 +555,12 @@ namespace AddressPrinter {
                 base.Columns.Add(this.columnFromAddress);
                 this.columnWeight = new global::System.Data.DataColumn("Weight", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWeight);
+                this.columnBoxCount = new global::System.Data.DataColumn("BoxCount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBoxCount);
+                this.columnRep = new global::System.Data.DataColumn("Rep", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRep);
+                this.columnCusId = new global::System.Data.DataColumn("CusId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCusId);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -821,6 +863,54 @@ namespace AddressPrinter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BoxCount {
+                get {
+                    try {
+                        return ((string)(this[this.tableCurierNote.BoxCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BoxCount\' in table \'CurierNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCurierNote.BoxCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Rep {
+                get {
+                    try {
+                        return ((string)(this[this.tableCurierNote.RepColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rep\' in table \'CurierNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCurierNote.RepColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CusId {
+                get {
+                    try {
+                        return ((string)(this[this.tableCurierNote.CusIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CusId\' in table \'CurierNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCurierNote.CusIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerNameNull() {
                 return this.IsNull(this.tableCurierNote.CustomerNameColumn);
             }
@@ -937,6 +1027,42 @@ namespace AddressPrinter {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWeightNull() {
                 this[this.tableCurierNote.WeightColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBoxCountNull() {
+                return this.IsNull(this.tableCurierNote.BoxCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBoxCountNull() {
+                this[this.tableCurierNote.BoxCountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRepNull() {
+                return this.IsNull(this.tableCurierNote.RepColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRepNull() {
+                this[this.tableCurierNote.RepColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCusIdNull() {
+                return this.IsNull(this.tableCurierNote.CusIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCusIdNull() {
+                this[this.tableCurierNote.CusIdColumn] = global::System.Convert.DBNull;
             }
         }
         

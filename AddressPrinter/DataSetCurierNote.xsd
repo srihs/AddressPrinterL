@@ -25,6 +25,9 @@
               <xs:element name="NoBoxes" msprop:Generator_ColumnVarNameInTable="columnNoBoxes" msprop:Generator_ColumnPropNameInRow="NoBoxes" msprop:Generator_ColumnPropNameInTable="NoBoxesColumn" msprop:Generator_UserColumnName="NoBoxes" type="xs:string" minOccurs="0" />
               <xs:element name="FromAddress" msprop:Generator_ColumnVarNameInTable="columnFromAddress" msprop:Generator_ColumnPropNameInRow="FromAddress" msprop:Generator_ColumnPropNameInTable="FromAddressColumn" msprop:Generator_UserColumnName="FromAddress" type="xs:string" minOccurs="0" />
               <xs:element name="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_UserColumnName="Weight" type="xs:string" minOccurs="0" />
+              <xs:element name="BoxCount" msprop:Generator_ColumnVarNameInTable="columnBoxCount" msprop:Generator_ColumnPropNameInRow="BoxCount" msprop:Generator_ColumnPropNameInTable="BoxCountColumn" msprop:Generator_UserColumnName="BoxCount" type="xs:string" minOccurs="0" />
+              <xs:element name="Rep" msprop:Generator_ColumnVarNameInTable="columnRep" msprop:Generator_ColumnPropNameInRow="Rep" msprop:Generator_ColumnPropNameInTable="RepColumn" msprop:Generator_UserColumnName="Rep" type="xs:string" minOccurs="0" />
+              <xs:element name="CusId" msprop:Generator_ColumnVarNameInTable="columnCusId" msprop:Generator_ColumnPropNameInRow="CusId" msprop:Generator_ColumnPropNameInTable="CusIdColumn" msprop:Generator_UserColumnName="CusId" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -126,9 +126,9 @@ namespace AddressPrinter
                 //dRow["TelephoneNo"] = objCustomer.phone +" / "+ objCustomer.phone2;
                 dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
                 dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
-                dRow["Weight"] = txtWeight.Text +" Kgs";
+                dRow["Weight"] = txtWeight.Text + " Kgs";
                 objDataset.Tables["CurierNote"].Rows.Add(dRow);
-                
+
 
                 PrinterSettings settings = new PrinterSettings();
 
@@ -140,6 +140,32 @@ namespace AddressPrinter
 
 
                 report.PrintToPrinter(1, false, 0, 0);
+
+                objDataset.Dispose();
+                dRow = null;
+
+                objDataset = new DataSetCurierNote();
+                for (int i = 0; i < int.Parse(txtNoOfBoxes.Text); i++)
+                {
+                     dRow = objDataset.Tables["CurierNote"].NewRow();
+
+                    dRow["Address1"] = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", objCustomer.customerName, objCustomer.address1, objCustomer.address2, objCustomer.address3, objCustomer.address4, objCustomer.phone, objCustomer.phone2).Replace("\n",
+                                                        Environment.NewLine);
+                    dRow["FromAddress"] = businessAddress;
+                    dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
+                    dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
+                    dRow["Weight"] = txtWeight.Text + " Kgs";
+                    dRow["BoxCount"] = i +"/"+ txtNoOfBoxes.Text;
+                    dRow["Rep"] =  objCustomer.rep;
+                    dRow["CusId"] = objCustomer.id;
+
+                    objDataset.Tables["CurierNote"].Rows.Add(dRow);
+
+                }
+
+                AddressNote objAddress = new AddressNote(objDataset);
+                objAddress.Show();
+                this.Close();
 
 
 

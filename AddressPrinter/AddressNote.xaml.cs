@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using MahApps.Metro.Controls;
+using SAPBusinessObjects.WPF.Viewer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +22,35 @@ namespace AddressPrinter
     /// </summary>
     public partial class AddressNote : MetroWindow
     {
+        private DataSetCurierNote objDataset;
+
         public AddressNote()
         {
             InitializeComponent();
+        }
+
+        public AddressNote(DataSetCurierNote objDataset)
+        {
+            try
+            {
+                this.objDataset = objDataset;
+                rtpViwer = new CrystalReportsViewer();
+                ReportDocument reportDocument = new ReportDocument();
+                //report.VerifyDatabase();
+                //  rtpViwer.ViewerCore.ReportSource = report;
+                string path = System.AppDomain.CurrentDomain.BaseDirectory;
+                reportDocument.Load(System.AppDomain.CurrentDomain.BaseDirectory + "AddressLabel.rpt");//C#
+                reportDocument.SetDataSource(objDataset.Tables["CurierNote"]);
+
+                ViewerCore view = rtpViwer.ViewerCore;
+                view.ReportSource = reportDocument;
+                //view.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+            }
         }
     }
 }
