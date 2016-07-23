@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using SAPBusinessObjects.WPF.Viewer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Reporting.WinForms;
 
 namespace AddressPrinter
 {
@@ -33,18 +35,17 @@ namespace AddressPrinter
         {
             try
             {
+                InitializeComponent();
                 this.objDataset = objDataset;
-                rtpViwer = new CrystalReportsViewer();
-                ReportDocument reportDocument = new ReportDocument();
-                //report.VerifyDatabase();
-                //  rtpViwer.ViewerCore.ReportSource = report;
-                string path = System.AppDomain.CurrentDomain.BaseDirectory;
-                reportDocument.Load(System.AppDomain.CurrentDomain.BaseDirectory + "AddressLabel.rpt");//C#
-                reportDocument.SetDataSource(objDataset.Tables["CurierNote"]);
+
+               
+                AddressLabel report = new AddressLabel();
+                report.SetDataSource(objDataset.Tables["CurierNote"]);
+                report.VerifyDatabase();
+                report.Refresh();
 
                 ViewerCore view = rtpViwer.ViewerCore;
-                view.ReportSource = reportDocument;
-                //view.RefreshReport();
+                view.ReportSource = report;
             }
             catch (Exception ex)
             {

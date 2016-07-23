@@ -147,6 +147,7 @@ namespace AddressPrinter
                 objDataset = new DataSetCurierNote();
                 for (int i = 0; i < int.Parse(txtNoOfBoxes.Text); i++)
                 {
+                    int boxCount = i + 1;
                      dRow = objDataset.Tables["CurierNote"].NewRow();
 
                     dRow["Address1"] = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", objCustomer.customerName, objCustomer.address1, objCustomer.address2, objCustomer.address3, objCustomer.address4, objCustomer.phone, objCustomer.phone2).Replace("\n",
@@ -155,8 +156,8 @@ namespace AddressPrinter
                     dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
                     dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
                     dRow["Weight"] = txtWeight.Text + " Kgs";
-                    dRow["BoxCount"] = i +"/"+ txtNoOfBoxes.Text;
-                    dRow["Rep"] =  objCustomer.rep;
+                    dRow["BoxCount"] = "Box "+ boxCount + "/"+ txtNoOfBoxes.Text;
+                    dRow["Rep"] =  "Rep: "+objCustomer.rep;
                     dRow["CusId"] = objCustomer.id;
 
                     objDataset.Tables["CurierNote"].Rows.Add(dRow);
