@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="BtnAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnAddCustomer_Click" IsEnabled="False"/>
         <Button x:Name="BtnCourierNote" Content="Print Courier Note" HorizontalAlignment="Left" Margin="11,65,0,0" VerticalAlignment="Top" Width="116" Height="43" Click="BtnCourierNote_Click"/>
-        <Button x:Name="BtnPrintAddress" Content="Print Address Note" HorizontalAlignment="Left" Margin="132,65,0,0" VerticalAlignment="Top" Width="120" Height="43" IsEnabled="False"/>
+        <Button x:Name="BtnPrintAddress" Content="Print Address Note" HorizontalAlignment="Left" Margin="132,65,0,0" VerticalAlignment="Top" Width="120" Height="43" IsEnabled="true" Click="BtnPrintAddress_Click"/>
         <Button x:Name="BtnUploadCustomer" Content="Upload Customers" HorizontalAlignment="Left" Margin="234,10,0,0" VerticalAlignment="Top" Width="113" Height="43" Click="BtnUploadCustomer_Click"/>
         <Button x:Name="BtnEditCustomer" Content="Edit Customer" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnEditCustomer_Click" IsEnabled="False"/>
         <Button x:Name="BtnSettings" Content="Settings" HorizontalAlignment="Left" Margin="257,65,0,0" VerticalAlignment="Top" Width="90" Height="43" Click="BtnSettings_Click" IsEnabled="False" />

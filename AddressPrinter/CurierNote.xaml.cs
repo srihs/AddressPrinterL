@@ -116,17 +116,14 @@ namespace AddressPrinter
 
                 DataSetCurierNote objDataset = new DataSetCurierNote();
                 DataRow dRow = objDataset.Tables["CurierNote"].NewRow();
-                //dRow["CustomerName"] = objCustomer.customerName;
                 dRow["Address1"] = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", objCustomer.customerName, objCustomer.address1, objCustomer.address2, objCustomer.address3, objCustomer.address4, objCustomer.phone, objCustomer.phone2).Replace("\n",
                                                          Environment.NewLine);
                 dRow["FromAddress"] = businessAddress;
-                //dRow["Address2"] = objCustomer.address2;
-                //dRow["Address3"] = objCustomer.address3;
-                //dRow["Address4"] = objCustomer.address4;
-                //dRow["TelephoneNo"] = objCustomer.phone +" / "+ objCustomer.phone2;
                 dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
-                dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
+                dRow["NoBoxes"] = txtNoOfBoxes.Text;
                 dRow["Weight"] = txtWeight.Text + " Kgs";
+                dRow["Rep"] = objCustomer.rep;
+
                 objDataset.Tables["CurierNote"].Rows.Add(dRow);
 
 
@@ -141,32 +138,12 @@ namespace AddressPrinter
 
                 report.PrintToPrinter(1, false, 0, 0);
 
-                objDataset.Dispose();
-                dRow = null;
 
-                objDataset = new DataSetCurierNote();
-                for (int i = 0; i < int.Parse(txtNoOfBoxes.Text); i++)
-                {
-                    int boxCount = i + 1;
-                     dRow = objDataset.Tables["CurierNote"].NewRow();
-
-                    dRow["Address1"] = string.Format("{0}\n{1}\n{2}\n{3}\n{4}\n{5}\n{6}", objCustomer.customerName, objCustomer.address1, objCustomer.address2, objCustomer.address3, objCustomer.address4, objCustomer.phone, objCustomer.phone2).Replace("\n",
-                                                        Environment.NewLine);
-                    dRow["FromAddress"] = businessAddress;
-                    dRow["InvoiceNo"] = "Inv: " + txtInvoiceNumber.Text;
-                    dRow["NoBoxes"] = "Box Count: " + txtNoOfBoxes.Text;
-                    dRow["Weight"] = txtWeight.Text + " Kgs";
-                    dRow["BoxCount"] = "Box "+ boxCount + "/"+ txtNoOfBoxes.Text;
-                    dRow["Rep"] =  "Rep: "+objCustomer.rep;
-                    dRow["CusId"] = objCustomer.id;
-
-                    objDataset.Tables["CurierNote"].Rows.Add(dRow);
-
-                }
-
-                AddressNote objAddress = new AddressNote(objDataset);
-                objAddress.Show();
+                SaveCurierNote objSaveCurier = new SaveCurierNote(objDataset);
+                objSaveCurier.Show();
                 this.Close();
+
+
 
 
 

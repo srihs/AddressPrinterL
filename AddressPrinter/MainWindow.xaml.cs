@@ -72,8 +72,6 @@ namespace AddressPrinter
 
         private void BtnCourierNote_Click(object sender, RoutedEventArgs e)
         {
-            
-
             try
             {
                 CustomerSearch objCustomerSearch = new CustomerSearch();
@@ -98,6 +96,13 @@ namespace AddressPrinter
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void BtnPrintAddress_Click(object sender, RoutedEventArgs e)
+        {
+            AddressNote objAddress = new AddressNote();
+            objAddress.Show();
+            this.Close();
         }
     }
 }

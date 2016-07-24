@@ -38,7 +38,6 @@ namespace AddressPrinter
                 InitializeComponent();
                 this.objDataset = objDataset;
 
-               
                 AddressLabel report = new AddressLabel();
                 report.SetDataSource(objDataset.Tables["CurierNote"]);
                 report.VerifyDatabase();
