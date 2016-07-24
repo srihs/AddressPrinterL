@@ -14,7 +14,7 @@
             <WindowsFormsHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <!--<rv:ReportViewer x:Name="reportViewer" />-->
             </WindowsFormsHost>
-            <Viewer:CrystalReportsViewer  Name="rtpViwer"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10" FlowDirection="LeftToRight" />
+            <Viewer:CrystalReportsViewer  Name="rtpViwer"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10" FlowDirection="LeftToRight" ShowCopyButton="False" ShowGoToPageButton="False" ShowLogo="False" ShowRefreshButton="False" ShowToggleSidePanelButton="False" ShowPrevPageButton="True" ShowSearchTextButton="False" ShowToolbar="True" ToggleSidePanel="None" />
 
         </DockPanel>
     </Grid>
