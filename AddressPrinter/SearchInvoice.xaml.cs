@@ -43,7 +43,7 @@ namespace AddressPrinter
             try
             {
                 dt.Rows.Clear();
-               
+
 
                 string Sql = "Select * from Customer_Currier_Bills";
 
@@ -93,6 +93,74 @@ namespace AddressPrinter
 
                 }
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+            }
+        }
+
+        private void dgSearhCustomer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                //DataGridRow row = ItemsControl.ContainerFromElement((DataGrid)sender, e.OriginalSource as DependencyObject) as DataGridRow;
+                //if (row != null)
+                DataRowView drv = (DataRowView)dgSearhCustomer.SelectedItem;
+                if (drv != null)
+                    BindData(drv);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Address Printer");
+
+            }
+        }
+
+        private void BindData(DataRowView row)
+        {
+            try
+            {
+                DataSetCurierNote objDataset = new DataSetCurierNote();
+
+                int BoxCount = int.Parse(row["No of Boxes"].ToString());
+                for (int i = 0; i < BoxCount; i++)
+                {
+                    DataRow dRow = objDataset.Tables["CurierNote"].NewRow();
+                    dRow["Address1"] = row[0].ToString();
+                    dRow["FromAddress"] = row[3].ToString();
+                    dRow["InvoiceNo"] = row[1].ToString();
+                    dRow["NoBoxes"] = row[2].ToString();
+                    dRow["Weight"] = row[4].ToString();
+                    dRow["Rep"] = row[5].ToString();
+                    dRow["BoxCount"] = "Box " + (i + 1 )+ " of " + row[2].ToString();
+                    dRow["ReferenceNo"] = row[6].ToString();
+                    objDataset.Tables["CurierNote"].Rows.Add(dRow);
+
+                    
+                }
+
+                AddressNote objAddressNote = new AddressNote(objDataset);
+                objAddressNote.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Address Printer");
+            }
+        }
+
+
+        private void dgSearhCustomer_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.Key == Key.Enter)
+                {
+                    //BindData();
+                }
             }
             catch (Exception ex)
             {

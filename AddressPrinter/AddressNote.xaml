@@ -8,7 +8,7 @@
     xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
         xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"  x:Class="AddressPrinter.AddressNote"
         mc:Ignorable="d"
-        Title="AddressNote" Height="428.379" Width="510.81">
+        Title="AddressNote" Height="428.379" Width="510.81" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" WindowState="Maximized">
     <Grid>
         <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" FlowDirection="RightToLeft">
             <WindowsFormsHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">

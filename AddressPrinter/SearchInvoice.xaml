@@ -6,10 +6,10 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:AddressPrinter"
         mc:Ignorable="d"
-        Title="Search Invoice" Height="277.444" Width="604.511" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+        Title="Search Invoice" Height="330.451" Width="781.579" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="514,13,0,0" VerticalAlignment="Top" Width="63" Click="btnSearch_Click"/>
-        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="True" x:Name="dgSearhCustomer" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="188" Width="579" BorderBrush="#CC000000" BorderThickness="1,1,1,1"/>
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" x:Name="dgSearhCustomer" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="238" Width="758" BorderBrush="#CC000000" BorderThickness="1,1,1,1" CanUserResizeRows="False" GridLinesVisibility="All" MouseDoubleClick="dgSearhCustomer_MouseDoubleClick" PreviewKeyDown="dgSearhCustomer_PreviewKeyDown" />
         <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" HorizontalAlignment="Left" Height="25" Margin="23,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
         <TextBox Controls:TextBoxHelper.Watermark="Invoice No" x:Name="txtInvoiceNumber" HorizontalAlignment="Left" Height="25" Margin="315,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
 
