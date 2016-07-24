@@ -142,6 +142,9 @@
     <Compile Include="SaveCurierNote.xaml.cs">
       <DependentUpon>SaveCurierNote.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchInvoice.xaml.cs">
+      <DependentUpon>SearchInvoice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SaveCurierNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchInvoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
