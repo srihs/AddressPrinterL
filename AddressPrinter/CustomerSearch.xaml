@@ -1,0 +1,15 @@
+﻿<Controls:MetroWindow  x:Class="AddressPrinter.CustomerSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressPrinter"
+        mc:Ignorable="d"
+        Title="CustomerSearch" Height="346.632" Width="505.921" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="True" x:Name="dgSearhCustomer" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Height="246" Width="478" PreviewKeyDown="dgSearhCustomer_PreviewKeyDown" MouseDoubleClick="dgSearhCustomer_MouseDoubleClick"/>
+        <TextBox Controls:TextBoxHelper.Watermark="Customer Name" x:Name="txtCustomerName" Margin="22,21,186,269" KeyDown="txtCustomerName_KeyDown" TextChanged="txtCustomerName_TextChanged" />
+
+    </Grid>
+</Controls:MetroWindow>

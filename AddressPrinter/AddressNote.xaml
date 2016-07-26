@@ -1,0 +1,21 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:AddressPrinter"
+    xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer"  x:Class="AddressPrinter.AddressNote"
+        mc:Ignorable="d"
+        Title="AddressNote" Height="428.379" Width="510.81" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" WindowState="Maximized">
+    <Grid>
+        <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" FlowDirection="RightToLeft">
+            <WindowsFormsHost HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <!--<rv:ReportViewer x:Name="reportViewer" />-->
+            </WindowsFormsHost>
+            <Viewer:CrystalReportsViewer  Name="rtpViwer"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,10" FlowDirection="LeftToRight" ShowCopyButton="False" ShowGoToPageButton="False" ShowLogo="False" ShowRefreshButton="False" ShowToggleSidePanelButton="False" ShowPrevPageButton="True" ShowSearchTextButton="False" ShowToolbar="True" ToggleSidePanel="None" />
+
+        </DockPanel>
+    </Grid>
+</Controls:MetroWindow>

@@ -40,5 +40,69 @@ namespace AddressPrinter
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnEditCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AddCustomer objCustomer = new AddCustomer("EDIT");
+                objCustomer.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnUploadCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CustomerUpload objCustomerLoad = new CustomerUpload();
+                objCustomerLoad.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnCourierNote_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CustomerSearch objCustomerSearch = new CustomerSearch();
+                objCustomerSearch.Show();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Settings objSettings = new Settings();
+                objSettings.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnPrintAddress_Click(object sender, RoutedEventArgs e)
+        {
+
+            SearchInvoice objSearch = new SearchInvoice();
+            objSearch.Show();
+        }
     }
 }

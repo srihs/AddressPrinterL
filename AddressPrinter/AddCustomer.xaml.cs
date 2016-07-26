@@ -22,10 +22,22 @@ namespace AddressPrinter
     {
         #region -Private Variables-
         bool isValidForm = false;
+        string mode;
         #endregion
         public AddCustomer()
         {
             InitializeComponent();
+        }
+
+        public AddCustomer(string emode)
+        {
+            InitializeComponent();
+            if (emode == "EDIT")
+            {
+                mode = emode;
+                this.Title = "Edit Customer";
+                btnSearch.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -37,33 +49,28 @@ namespace AddressPrinter
 
                 if (isValidForm)
                 {
-                    System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
-                    string Sql = "Insert into Customer (Cus_CustomerName,Cus_CustomerAddress1,Cus_CustomerAddress2,Cus_CustomerAddress3,"+
-                        "Cus_CustomerAddress4,"+
-                        "Cus_Phone1,"+
-                        "Cus_Phone2,"+
-                        "Cus_Rep)"+
-                        "values('"+txtCustomerName.Text +"','"+txtAddress1.Text + "','" + txtAddress2.Text + "','" + txtAddress3.Text + "','" + txtAddress4.Text + "','" + txtPhone.Text + "','" + txtPhone2.Text + "','" + txtRep.Text + "')";
+                    if (mode != "EDIT")
+                    {
+                        System.Data.SQLite.SQLiteConnection dbConnection = new Common().OpenConnection();
+                        string Sql = "Insert into Customer (Cus_CustomerName,Cus_CustomerAddress1,Cus_CustomerAddress2,Cus_CustomerAddress3," +
+                            "Cus_CustomerAddress4," +
+                            "Cus_Phone1," +
+                            "Cus_Phone2," +
+                            "Cus_Rep)" +
+                            "values('" + txtCustomerName.Text + "','" + txtAddress1.Text + "','" + txtAddress2.Text + "','" + txtAddress3.Text + "','" + txtAddress4.Text + "','" + txtPhone.Text + "','" + txtPhone2.Text + "','" + txtRep.Text + "')";
 
-                    System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
-                    dbCommand.CommandType = System.Data.CommandType.Text;
-                    dbCommand.ExecuteNonQuery();
-                    MessageBox.Show("Record Saved","Address Printer",MessageBoxButton.OKCancel,MessageBoxImage.Information);
+                        System.Data.SQLite.SQLiteCommand dbCommand = new System.Data.SQLite.SQLiteCommand(Sql, dbConnection);
+                        dbCommand.CommandType = System.Data.CommandType.Text;
+                        dbCommand.ExecuteNonQuery();
+                        MessageBox.Show("Record Saved", "Address Printer", MessageBoxButton.OKCancel, MessageBoxImage.Information);
 
-                    txtCustomerName.SetValue(TextBoxHelper.WatermarkProperty, "Customer Name");
-                    txtAddress1.SetValue(TextBoxHelper.WatermarkProperty, "Address line 1");
-                    txtAddress2.SetValue(TextBoxHelper.WatermarkProperty, "Address line 2");
-                    txtAddress3.SetValue(TextBoxHelper.WatermarkProperty, "Address line 3");
-                    txtAddress4.SetValue(TextBoxHelper.WatermarkProperty, "Address line 4");
-                    txtPhone.SetValue(TextBoxHelper.WatermarkProperty, "Telephone");
-                    txtPhone2.SetValue(TextBoxHelper.WatermarkProperty, "Telephone 2");
-                    txtFax.SetValue(TextBoxHelper.WatermarkProperty, "Fax");
-                    txtRep.SetValue(TextBoxHelper.WatermarkProperty, "Rep");
+                        clearControls();
 
+                    }
+                    else
+                    {
 
-
-
-
+                    }
 
                 }
 
@@ -75,6 +82,31 @@ namespace AddressPrinter
                 MessageBox.Show(ex.Message, "Address Printer");
             }
         }
+
+        private void clearControls()
+        {
+
+            foreach (Control txtBox in gdCreate.Children)
+            {
+                if (txtBox.GetType() == typeof(TextBox))
+                {
+                    ((TextBox)txtBox).Text = "";
+                }
+            }
+
+
+            txtCustomerName.SetValue(TextBoxHelper.WatermarkProperty, "Name");
+            txtAddress1.SetValue(TextBoxHelper.WatermarkProperty, "Address line 1");
+            txtAddress2.SetValue(TextBoxHelper.WatermarkProperty, "Address line 2");
+            txtAddress3.SetValue(TextBoxHelper.WatermarkProperty, "Address line 3");
+            txtAddress4.SetValue(TextBoxHelper.WatermarkProperty, "Address line 4");
+            txtPhone.SetValue(TextBoxHelper.WatermarkProperty, "Telephone");
+            txtPhone2.SetValue(TextBoxHelper.WatermarkProperty, "Telephone 2");
+            txtFax.SetValue(TextBoxHelper.WatermarkProperty, "Fax");
+            txtRep.SetValue(TextBoxHelper.WatermarkProperty, "Rep");
+        }
+
+
 
         private bool checkValidity()
         {
